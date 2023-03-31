@@ -1,0 +1,28 @@
+{
+    "articles": [],
+    "events":[],
+    "messages":[],
+    "tasks":[
+        { 
+            "id": 1,  
+            "task": "Take out garbage",
+            "complete": false 
+        },
+        { 
+            "id": 2,  
+            "task": "File Tax Return",
+            "complete": false 
+        },
+        { 
+            "id": 3,  
+            "task": "Buy Europe Trip Ticket",
+            "complete": false 
+        },
+        { 
+            "id": 4,  
+            "task": "Hire private chef",
+            "complete": false 
+        }
+        ]
+    
+}
