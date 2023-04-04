@@ -35,12 +35,16 @@ export const articleList = () => {
           <label class="label" for="article-title">Article</label>
           <input type="text" id="new-article-title" class="input"/>
           
+          <label class="label" for="article-tags">Tags</label>
+          <input type="text" id="new-article-tags" class="input"/> 
+          
           <label class="label" for="article-synopsis">Synopsis</label>
           <input type="text" id="new-article-synopsis" class="input"/>
           
           <label class="label" for="article-url">URL</label>
           <input type="text" id="new-article-url" class="input"/>
           
+
           <button class="button" id="createArticle">Save Article</button>
         </div>
       `;
@@ -56,12 +60,7 @@ export const articleList = () => {
     })
       
     
-//     dashboard.addEventListener("click", clickEvent => {
-//       if (clickEvent.target.id === "createNewEvent") {
-//         document.querySelector("#new-article-form").innerHTML = articleForm()
-//       }
-//     })
-    
+
 dashboard.addEventListener("click", clickEvent => {
   if (clickEvent.target.classList.contains("article-create-button")) {
     const articleForm = document.querySelector(".article-form");
@@ -76,17 +75,19 @@ dashboard.addEventListener("click", clickEvent => {
     const articleTitle = document.querySelector("input[id='new-article-title']").value;
     const articleSynopsis = document.querySelector("input[id='new-article-synopsis']").value;
     const articleUrl = document.querySelector("input[id='new-article-url']").value;
-    const articleTags = document.querySelector("input[type=checkbox]:checked").value.split(",");
-    if (!articleTitle || !articleSynopsis || !articleUrl) {
-      window.alert(`Enter an article title, synopsis and URL before saving`);
-      return;
-    } else {
-      const dataToSendToAPI = {
-        title: articleTitle,
-        synopsis: articleSynopsis,
-        url: articleUrl,
-        tags: articleTags
-      };
+    const articleTags = document.querySelector("input[id='new-article-tags']").value.split(",").map(tag => tag.trim());
+
+if (!articleTitle || !articleSynopsis || !articleUrl) {
+  window.alert(`Enter an article title, synopsis and URL before saving`);
+  return;
+} else {
+  const dataToSendToAPI = {
+    title: articleTitle,
+    synopsis: articleSynopsis,
+    url: articleUrl,
+    tags: articleTags
+  };
+
       saveArticle(dataToSendToAPI);
       const articleForm = document.querySelector(".article-form");
       articleForm.classList.add("hidden");
@@ -94,26 +95,3 @@ dashboard.addEventListener("click", clickEvent => {
     }
   }
 });
-
-
-
-// dashboard.addEventListener("click", clickEvent => {
-//   if (clickEvent.target.id === "createArticle") {
-//     clickEvent.preventDefault();
-//     const articleTitle = document.querySelector("input[id='new-article-title']").value
-//     const articleSynopsis = document.querySelector("input[id='new-article-synopsis']").value
-//     const articleUrl = document.querySelector("input[id='new-article-url']").value
-
-//     if(!articleTitle || !articleSynopsis || !articleUrl){
-//       window.alert(`Enter an article title, synopsis and URL before saving`)
-//       return
-//     }
-//     else {const dataToSendToAPI = {
-//       title: articleTitle,
-//       synopsis: articleSynopsis,
-//       url: articleUrl
-//     }
-//       saveArticle(dataToSendToAPI)
-//   }
-//   }
-// })
