@@ -2,10 +2,12 @@ import { sendEvent } from "./dataAccess.js"
 
 
 const mainContainer = document.querySelector("#dashboard")
+
 export const eventForm = () => {
     let html = `
    <div>
    <button class="button" id="addEvent" style="background-color: teal; font-family: Times New Roman">Add your Event</button></div>
+   <form id="addEventForm">
         <div class="field">
             <label class="label" for="eventName">Event Name</label>
             <input type="text" name="eventName" class="input" />
@@ -34,7 +36,21 @@ export const eventForm = () => {
 }
 
 
-//const mainContainer = document.querySelector("#dashboard")
+mainContainer.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "addEvent") {
+        const form = document.getElementById("addEventForm")
+        if (form.style.display === 'none') {
+            //  this SHOWS the form
+            form.style.display = 'block';
+         }else {
+            //  this HIDES the form
+            form.style.display = 'none';
+
+          }
+    }
+})
+
+
 console.log (mainContainer)
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {

@@ -3,13 +3,12 @@ import { deleteEvent, getEvents, saveCompletion } from "./dataAccess.js"
 const convertToListElement = (event) => {
     return`
     <li>
-     ${event.name} is at ${event.location} at ${event.eventTime}.${event.description} 
+     ${event.name} is at ${event.location} on ${event.eventDate} at ${event.eventTime}.${event.description} 
    
    
     
    
-    <button class="event__delete"
-    id="event--${event.id}">Delete</button>
+    <button class="event__delete" id="event--${event.id}">Delete</button>
 </li>
 `
 }
@@ -29,10 +28,10 @@ export const events = () => {
 }
 const mainContainer = document.querySelector("#dashboard")
 
-mainContainer.addEventListener("click", click => {
-    if (click.target.id.startsWith("events--")) {
-        const [,eventId] = click.target.id.split("--")
-        deleteEvent(parseInt(eventId))
+mainContainer.addEventListener("click", clickevent => {                         
+    if (clickevent.target.id.startsWith("event--")) {
+        const [,eventId] = clickevent.target.id.split("--") 
+            deleteEvent(parseInt(eventId))
     }
 })
 

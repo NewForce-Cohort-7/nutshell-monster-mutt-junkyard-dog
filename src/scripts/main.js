@@ -3,6 +3,7 @@ import { fetchEvents } from "./dataAccess.js"
 import { fetchRequests, fetchArticles } from "./dataAccess.js"
 
 const dashboard = document.querySelector("#dashboard")
+const mainContainer = document.querySelector("#dashboard")
 
 const render = () => {
     fetchEvents()
@@ -13,7 +14,7 @@ const render = () => {
 
 
 
-const mainContainer = document.querySelector("#dashboard")
+
           
         }
     )
