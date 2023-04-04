@@ -19,7 +19,7 @@ export const Nutshell = () => {
       </div>
       ${articleForm()}
       ${articleList()}
-
+      <div class="chat-container">
       <h1>Nutshell Chat</h1>
         <section class="siteChat">
             ${siteChat()}

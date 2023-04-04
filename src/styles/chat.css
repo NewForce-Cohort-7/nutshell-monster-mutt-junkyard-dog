@@ -1,3 +1,79 @@
 .chat-container {
-    width: 25%;
+    width: 30%;
+    float: right;
+    margin-right: 95px;
+    outline: 2px dashed black;
   }
+/* chat history - large box holding previous messages */
+  .chat {
+    flex-direction: column;
+    height: 500px;
+    /* outline: 2px dashed blue; */
+  }
+  .large-Input {
+    width: 95%;
+    height: 495px;
+  }
+
+
+  /* username and chat input boxes */
+  .chat-Input-Fields {
+    display: flex;
+    /* border: 3px dashed red; */
+    padding:1em;
+  }
+
+  .username-Field {
+    /* padding-right:1em; */
+    padding-top:1em;
+    /* border: 3px dashed orange; */
+  }
+
+  .new-Chat-Field {
+    padding-top:1em;
+    /* border: 3px dashed green; */
+  }
+  .username-Field {
+    flex-direction: column;
+  }
+
+  .medium-Input {
+    width: 80%;
+  }
+  .small-Input {
+    width: 50%;
+  }
+
+  /* send button */
+    .send-Button {
+    /* outline: 2px dashed orchid; */
+    float: right;
+    margin-right: 15px;
+  }
+
+
+  /* .label {
+    flex-direction: column;
+    outline: 2px dashed red;
+    flex-direction: column;
+    width: 100px;
+    background: #ce8888;
+  } */
+
+  /* .input {
+    height: 100px;
+} */
+
+  /* .username-Field {
+    flex-direction: column;
+    length: 200px;
+    outline: 2px dashed red;
+  }
+
+  .chat-Input-Field{
+    flex-direction: column;
+    length: 200px;
+    outline: 2px dashed yellow;
+  } */
+
+  
