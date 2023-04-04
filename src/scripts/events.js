@@ -1,19 +1,15 @@
-import { getEvents, saveCompletion } from "./dataAccess.js"
+import { deleteEvent, getEvents, saveCompletion } from "./dataAccess.js"
 
 const convertToListElement = (event) => {
     return`
     <li>
-     ${events.name} is at ${events.location} at ${events.eventTime}.${events.description} 
+     ${event.name} is at ${event.location} at ${event.eventTime}.${event.description} 
    
    
     
-   .join("")
-    }
-</select>
+   
     <button class="event__delete"
-    id="event--${events.id}">
-Delete
-</button>
+    id="event--${event.id}">Delete</button>
 </li>
 `
 }
@@ -31,12 +27,12 @@ export const events = () => {
 
    return html
 }
-const mainContainer = document.querySelector("#container")
+const mainContainer = document.querySelector("#dashboard")
 
 mainContainer.addEventListener("click", click => {
     if (click.target.id.startsWith("events--")) {
         const [,eventId] = click.target.id.split("--")
-        deleteReservation(parseInt(eventId))
+        deleteEvent(parseInt(eventId))
     }
 })
 
@@ -44,8 +40,8 @@ mainContainer.addEventListener("click", click => {
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "clowns") {
-            const [reserveId, clownId] = event.target.value.split("--")
+        if (event.target.id === "events") {
+            const [eventId] = event.target.value.split("--")
 
             /*
                 This object should have 3 properties
@@ -54,8 +50,7 @@ mainContainer.addEventListener(
                    3. date_created
             */
             const completion = {
-                reserveId : +reserveId,
-                clownId : +clownId,
+               eventId : +eventId,
                 date_created : Date.now()
             }
 

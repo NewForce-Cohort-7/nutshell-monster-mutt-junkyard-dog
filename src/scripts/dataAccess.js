@@ -1,4 +1,4 @@
-const mainContainer = document.querySelector("#container")
+const mainContainer = document.querySelector("#dashboard")
 
 
 
@@ -21,9 +21,7 @@ export const getEvents = () => {
     return applicationState.events.map(events => ({ ...events}))
 }
 
-//export const getClowns = () => {
- //   return applicationState.clowns.map(clowns => ({ ...clowns}))
-//}
+
 export const sendEvent = (userEventRequest) => {
     const fetchOptions = {
         method: "POST",
@@ -49,14 +47,7 @@ export const deleteEvent = (id) => {
             }
         )
 }
-//export const fetchClowns = () => {
-  //  return fetch(`${API}/clowns`)
-    //    .then(response => response.json())
-      //  .then(
-        //    (data) => {
-                //applicationState.clowns = data
-          //  }
-       // )}
+
 
 
 

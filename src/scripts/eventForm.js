@@ -1,17 +1,18 @@
 import { sendEvent } from "./dataAccess.js"
 
 
-
+const mainContainer = document.querySelector("#dashboard")
 export const eventForm = () => {
     let html = `
-   <h2>Add your Event</h2>
+   <div>
+   <button class="button" id="addEvent" style="background-color: teal; font-family: Times New Roman">Add your Event</button></div>
         <div class="field">
             <label class="label" for="eventName">Event Name</label>
             <input type="text" name="eventName" class="input" />
         </div>
         <div class="field">
             <label class="label" for="eventDate">Event Date</label>
-            <input type="text" name="eventDate" class="input" />
+            <input type="date" name="eventDate" class="input" />
         </div>
         <div class="field">
             <label class="label" for="eventLocation">Location</label>
@@ -19,11 +20,11 @@ export const eventForm = () => {
         </div>
         <div class="field">
             <label class="label" for="eventTime">Time</label>
-            <input type="number" name="eventTime" class="input" />
+            <input type="text" name="eventTime" class="input" />
         </div>
         <div class="field">
             <label class="label" for="eventDescription">Event Description</label>
-            <input type="date" name="eventDescription" class="input" />
+            <input type="text" name="eventDescription" class="input" />
         </div>
            <button class="button" id="saveEvent" style="background-color: teal; font-family: Times New Roman">Save Event</button>
         <div class="bg-image"></div>
@@ -33,8 +34,8 @@ export const eventForm = () => {
 }
 
 
-const mainContainer = document.querySelector("#container")
-
+//const mainContainer = document.querySelector("#dashboard")
+console.log (mainContainer)
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
         // Get what the user typed into the form fields
