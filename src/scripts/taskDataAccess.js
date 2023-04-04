@@ -30,7 +30,7 @@ export const getTasks = () => {
 
 //"Hey API!! I want you to create something new!" When user clicks the submit task button:take the new object in transient state(applicationState) and convert it into permanent state by storing it in the database.json file, then send alert that state has changed
 
-const mainContainer = document.querySelector("#taskContainer")
+const mainContainer = document.querySelector("#dashboard")
 
 export const saveTasks = (newTaskInput) => {
     const fetchOptions = {

@@ -1,5 +1,7 @@
 import { getTasks,editTasks, deleteTask } from "./taskDataAccess.js";
 
+const mainContainer = document.querySelector("#dashboard")
+
 //Function to print incomplete tasks
 
 export const TaskList = ()=>{
@@ -60,7 +62,7 @@ export const TaskListComplete = ()=>{
 
 // Addeventlistener for when user clicks delete button
 
-const mainContainer = document.querySelector("#taskContainer")
+
 
 mainContainer.addEventListener("click", click => {
         if (click.target.id.startsWith("taskDelete")) {
