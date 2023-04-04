@@ -18,7 +18,7 @@ export const TaskForm = () => {
     return html
 }
 
-export const mainContainer = document.querySelector("#taskContainer")
+export const mainContainer = document.querySelector("#dashboard")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submitTask") {
