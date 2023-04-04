@@ -1,12 +1,13 @@
 import { Nutshell } from "./Nutshell.js"
+import { fetchRequests, fetchArticles } from "./dataAccess.js"
 
+const articlesContainer = document.querySelector("#articlesContainer")
 
-const dashboard = document.querySelector("#dashboard")
-
-const render = () => {
+export const render = () => {
     fetchRequests()
-    .then(() => {
-            dashboard.innerHTML = Nutshell()
+    .then(() => fetchArticles())
+    .then(() => { 
+            articlesContainer.innerHTML = Nutshell()
             
         }
     )
@@ -14,3 +15,9 @@ const render = () => {
 
 render()
 
+dashboard.addEventListener(
+    "stateChanged",
+    customEvent => {
+        render()
+    }
+)
