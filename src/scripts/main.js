@@ -1,7 +1,7 @@
 import { Nutshell } from "./Nutshell.js"
 import { fetchRequests, fetchArticles } from "./dataAccess.js"
 
-const articlesContainer = document.querySelector("#articlesContainer")
+const mainContainer = document.querySelector("#dashboard")
 
 export const render = () => {
     fetchRequests()
@@ -15,7 +15,7 @@ export const render = () => {
 
 render()
 
-dashboard.addEventListener(
+mainContainer.addEventListener(
     "stateChanged",
     customEvent => {
         render()
