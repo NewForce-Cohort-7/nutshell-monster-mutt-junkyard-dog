@@ -7,7 +7,7 @@ export const render = () => {
     fetchRequests()
     .then(() => fetchArticles())
     .then(() => { 
-            articlesContainer.innerHTML = Nutshell()
+            mainContainer.innerHTML = Nutshell()
             
         }
     )

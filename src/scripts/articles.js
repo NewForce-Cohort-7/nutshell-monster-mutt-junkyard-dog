@@ -1,6 +1,6 @@
 import { getArticles, deleteArticle, saveArticle } from "./dataAccess.js";
 
-const articlesContainer = document.querySelector("#articlesContainer")
+const mainContainer = document.querySelector("#dashboard")
 
 
 export const articleList = () => {
@@ -53,7 +53,7 @@ export const articleList = () => {
     
 
     
-    articlesContainer.addEventListener("click", clickEvent => {
+    mainContainer.addEventListener("click", clickEvent => {
       if(clickEvent.target.id.startsWith("delete-article--")){
         deleteArticle(parseInt(clickEvent.target.value))
       }
@@ -61,7 +61,7 @@ export const articleList = () => {
       
     
 
-dashboard.addEventListener("click", clickEvent => {
+mainContainer.addEventListener("click", clickEvent => {
   if (clickEvent.target.classList.contains("article-create-button")) {
     const articleForm = document.querySelector(".article-form");
     articleForm.classList.toggle("hidden");

@@ -1,5 +1,5 @@
 import { articleForm, articleList } from "./articles.js"
-
+import { breweryForm, breweryList } from "./breweries.js"
 
 export const Nutshell = () => {
       return `
@@ -8,7 +8,10 @@ export const Nutshell = () => {
       </div>
       ${articleForm()}
       ${articleList()}
-
+      <div class="brew">
+      ${breweryForm()}
+      ${breweryList()}
+            </div>
       
       `
 }
