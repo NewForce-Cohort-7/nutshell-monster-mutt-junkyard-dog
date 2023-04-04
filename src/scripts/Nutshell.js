@@ -1,10 +1,26 @@
-import { taskForm } from "./taskForm.js"
+import { TaskForm } from "./taskForm.js"
+import { TaskList, TaskListComplete } from "./taskList.js"
+import { DadJokes } from "./generateJoke.js"
 
 export const Nutshell = () => {
     return `
-        <h1>Your Tasks</h1>
+        <section class="joke">
+        <h1> Just for Laughs</h1>
+         ${DadJokes()}
+        </section>
         <section class="taskForm">
-        ${taskForm()}
+        <h1>My Tasks</h1>
+        ${TaskForm()}
+        </section>
+        
+        <section class="incompleteTaskList">
+        <h1>To Do!</h1>
+        ${TaskList()}
+        </section>
+
+        <section class="completeTaskList">
+        <h1>Done!!</h1>
+        ${TaskListComplete()}
         </section>
 
     `
