@@ -19,10 +19,12 @@ const render = () => {
 render()
 
 
+
 //In taskDataAccess when user deletes task or inputs new task & the data is saved permanently in db, dispatch event sends a "state change" signal....eventlistener hears and refresh page
 //mainContainer = document.querySelector("#taskContainer")
 
 mainContainer.addEventListener("stateChanged",customEvent => {
+
         render()
     }
 )

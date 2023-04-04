@@ -7,19 +7,24 @@ export const articleList = () => {
   const articles = getArticles();
   return `
   <div class="articleList">
-  ${articles.map(article => {
-    return `
-    <div id="new-article-form"></div>
-    <div class="article-container" id="${article.id}">
-    <div class="article-title">${article.title}</div>
-        <div class="article-synopsis">${article.synopsis}</div>
-        <div class="article-url">${article.url}</div>
-        <button class="article-delete-button" id="delete-article--${article.id}" value="${article.id}">Delete</button>
+    ${articles.map(article => {
+      return `
+        <div class="article-container" id="${article.id}">
+          <div class="article-title">${article.title}</div>
+          <div class="article-synopsis">${article.synopsis}</div>
+          <div class="article-url">${article.url}</div>
+          <div class="article-tags">
+            ${article.tags.map(tag => {
+              return `<button class="article-tag-button" data-tag="${tag}">${tag}</button>`;
+            }).join("")}
+          </div>
+          <button class="article-delete-button" id="delete-article--${article.id}" value="${article.id}">Delete</button>
         </div>
-        `
-      }).join("")}
-      </div>
       `;
+    }).join("")}
+  </div>
+`;
+
       
     };
     
@@ -30,12 +35,16 @@ export const articleList = () => {
           <label class="label" for="article-title">Article</label>
           <input type="text" id="new-article-title" class="input"/>
           
+          <label class="label" for="article-tags">Tags</label>
+          <input type="text" id="new-article-tags" class="input"/> 
+          
           <label class="label" for="article-synopsis">Synopsis</label>
           <input type="text" id="new-article-synopsis" class="input"/>
           
           <label class="label" for="article-url">URL</label>
           <input type="text" id="new-article-url" class="input"/>
           
+
           <button class="button" id="createArticle">Save Article</button>
         </div>
       `;
@@ -51,13 +60,8 @@ export const articleList = () => {
     })
       
     
-//     dashboard.addEventListener("click", clickEvent => {
-//       if (clickEvent.target.id === "createNewEvent") {
-//         document.querySelector("#new-article-form").innerHTML = articleForm()
-//       }
-//     })
-    
-articlesContainer.addEventListener("click", clickEvent => {
+
+dashboard.addEventListener("click", clickEvent => {
   if (clickEvent.target.classList.contains("article-create-button")) {
     const articleForm = document.querySelector(".article-form");
     articleForm.classList.toggle("hidden");
@@ -71,15 +75,19 @@ articlesContainer.addEventListener("click", clickEvent => {
     const articleTitle = document.querySelector("input[id='new-article-title']").value;
     const articleSynopsis = document.querySelector("input[id='new-article-synopsis']").value;
     const articleUrl = document.querySelector("input[id='new-article-url']").value;
-    if (!articleTitle || !articleSynopsis || !articleUrl) {
-      window.alert(`Enter an article title, synopsis and URL before saving`);
-      return;
-    } else {
-      const dataToSendToAPI = {
-        title: articleTitle,
-        synopsis: articleSynopsis,
-        url: articleUrl
-      };
+    const articleTags = document.querySelector("input[id='new-article-tags']").value.split(",").map(tag => tag.trim());
+
+if (!articleTitle || !articleSynopsis || !articleUrl) {
+  window.alert(`Enter an article title, synopsis and URL before saving`);
+  return;
+} else {
+  const dataToSendToAPI = {
+    title: articleTitle,
+    synopsis: articleSynopsis,
+    url: articleUrl,
+    tags: articleTags
+  };
+
       saveArticle(dataToSendToAPI);
       const articleForm = document.querySelector(".article-form");
       articleForm.classList.add("hidden");
@@ -87,25 +95,3 @@ articlesContainer.addEventListener("click", clickEvent => {
     }
   }
 });
-
-
-// dashboard.addEventListener("click", clickEvent => {
-//   if (clickEvent.target.id === "createArticle") {
-//     clickEvent.preventDefault();
-//     const articleTitle = document.querySelector("input[id='new-article-title']").value
-//     const articleSynopsis = document.querySelector("input[id='new-article-synopsis']").value
-//     const articleUrl = document.querySelector("input[id='new-article-url']").value
-
-//     if(!articleTitle || !articleSynopsis || !articleUrl){
-//       window.alert(`Enter an article title, synopsis and URL before saving`)
-//       return
-//     }
-//     else {const dataToSendToAPI = {
-//       title: articleTitle,
-//       synopsis: articleSynopsis,
-//       url: articleUrl
-//     }
-//       saveArticle(dataToSendToAPI)
-//   }
-//   }
-// })
