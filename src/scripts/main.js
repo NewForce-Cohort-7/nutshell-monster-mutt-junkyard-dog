@@ -24,7 +24,6 @@ render()
 //mainContainer = document.querySelector("#taskContainer")
 
 mainContainer.addEventListener("stateChanged",customEvent => {
-
         render()
     }
 )

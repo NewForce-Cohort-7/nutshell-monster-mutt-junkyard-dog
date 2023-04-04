@@ -76,22 +76,43 @@ export const editTasks = (id) => {
 }
 
 
-//Fetch random joke data from external API
+// //Fetch random joke data from external API
 
-const jokeAPI = "GET https://dad-jokes.p.rapidapi.com/random/joke"
+// const jokeAPI = "https://dad-jokes.p.rapidapi.com/random/joke"
 
-//Create a function that will house the fetch task
+// //Create a function that will house the fetch task
+
+// export const fetchJokes = () => {
+//     return fetch(`${jokeAPI}`)
+//         .then(response => response.json())
+//         .then(
+//             (randomJoke) => {
+//                 // Store the external state in application state
+//                 applicationState.jokes = randomJoke
+//             }
+//         )
+// }
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '5a8cb382d1msh6f71fe0ce0cd722p1bcae0jsne4317167a6c9',
+		'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com'
+	}
+};
 
 export const fetchJokes = () => {
-    return fetch(`${jokeAPI}`)
-        .then(response => response.json())
-        .then(
-            (randomJoke) => {
-                // Store the external state in application state
-                applicationState.jokes = randomJoke
-            }
-        )
-}
+    return fetch('https://dad-jokes.p.rapidapi.com/random/joke', options)
+	.then(response => response.json())
+	.then(
+        (randomJoke) => {
+            // Store the external state in application state
+            applicationState.jokes.setup = randomJoke
+        }
+    )
+	.catch(err => console.error(err));
+    }
+
 
 
 export const getJokes = () => {
