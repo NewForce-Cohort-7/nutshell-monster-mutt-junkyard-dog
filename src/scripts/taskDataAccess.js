@@ -78,7 +78,7 @@ export const editTasks = (id) => {
 
 //Fetch random joke data from external API
 
-const jokeAPI = "https://dad-jokes.p.rapidapi.com/random/joke"
+const jokeAPI = "GET https://dad-jokes.p.rapidapi.com/random/joke"
 
 //Create a function that will house the fetch task
 
