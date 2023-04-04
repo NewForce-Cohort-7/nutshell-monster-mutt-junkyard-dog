@@ -1,6 +1,6 @@
 const applicationState = {
     articles: [],
-    chats: [], 
+    chats: [] 
     // usernames: [],
   }
   const API = "http://localhost:8088";

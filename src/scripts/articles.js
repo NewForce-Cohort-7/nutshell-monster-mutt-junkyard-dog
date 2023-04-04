@@ -1,4 +1,4 @@
-import { getArticles, deleteArticle, saveArticle } from "./chatDataAccess.js";
+import { getArticles, deleteArticle, saveArticle } from "./dataAccess.js";
 
 const articlesContainer = document.querySelector("#articlesContainer")
 
