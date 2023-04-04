@@ -14,9 +14,23 @@ export const fetchRequests = () => {
     });
 };
 
+// export const getArticles = () => {
+//   return applicationState.articles.map(article => ({ ...article }))
+// }
+
 export const getArticles = () => {
-  return applicationState.articles.map(article => ({ ...article }))
+  return fetch(`${API}/articles`)
+    .then(response => response.json())
+    .then(articles => {
+      return articles.map(article => {
+        return {
+          ...article,
+          tags: article.tags.split(",") // split the comma-separated tags string into an array
+        }
+      })
+    })
 }
+
 
 export const deleteArticle = (articleId) => {
   return fetch(`${API}/articles/${articleId}`, {
@@ -35,7 +49,11 @@ export const fetchArticles = () => {
     })
 };
 
+
 export const saveArticle = (article) => {
+  if (typeof article.tags === "string") {
+    article.tags = article.tags.split(",").map(tag => tag.trim());
+  }
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -48,5 +66,20 @@ export const saveArticle = (article) => {
     .then(() => {
       mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
     })
-
 }
+
+// export const saveArticle = (article) => {
+//   const fetchOptions = {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(article)
+//   }
+//     return fetch(`${API}/articles`, fetchOptions)
+//     .then(response => response.json())
+//     .then(() => {
+//       mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+//     })
+
+// }
