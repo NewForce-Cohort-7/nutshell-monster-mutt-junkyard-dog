@@ -1,28 +1,68 @@
 const applicationState = {
-    completedChats: [],
-    usernames: [],
-}
+    articles: [],
+    chats: [], 
+    // usernames: [],
+  }
+  const API = "http://localhost:8088";
+  
+  const mainContainer = document.querySelector("#dashboard")
 
-// const dashboard = document.querySelector("#dashboard")
-
-const API = "http://localhost:8088"
-
-export const fetchUsernames = () => {
-    return fetch(`${API}/usernames`)
-        .then(response => response.json())
-        .then(
-            (data) => {
-                applicationState.usernames = data
-            }
-        )
-}
+  // My stuff  --------------------------------------
 
 export const fetchCompletedChats = () => {
-    return fetch(`${API}/completedChats`)
+    return fetch(`${API}/chats`)
         .then(response => response.json())
         .then(
             (data) => {
-                applicationState.completedChats = data
+                applicationState.chats = data
             }
         )
 }
+// ------------------------------------------------------
+  
+  
+  export const fetchRequests = () => {
+    return fetch(`${API}/articles`)
+      .then((response) => response.json())
+      .then((articles) => {
+        applicationState.articles = articles;
+      });
+  };
+  
+  export const getArticles = () => {
+    return applicationState.articles.map(article => ({ ...article }))
+  }
+  
+  export const deleteArticle = (articleId) => {
+    return fetch(`${API}/articles/${articleId}`, {
+      method: "DELETE"
+    }).then(() => {
+      mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+  };
+  
+  
+  export const fetchArticles = () => {
+    return fetch(`${API}/articles`)
+      .then(response => response.json())
+      .then((data) => {
+        applicationState.articles = data
+      })
+  };
+  
+  export const saveArticle = (article) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(article)
+    }
+      return fetch(`${API}/articles`, fetchOptions)
+      .then(response => response.json())
+      .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+      })
+  
+  }
+
