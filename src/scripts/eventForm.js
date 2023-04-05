@@ -7,7 +7,7 @@ export const eventForm = () => {
     let html = `
    <div>
    <button class="button" id="addEvent" style="background-color: teal; font-family: Times New Roman">Add your Event</button></div>
-   <form id="addEventForm">
+   <form id="addEventForm" style="display: none;">
         <div class="field">
             <label class="label" for="eventName">Event Name</label>
             <input type="text" name="eventName" class="input" />

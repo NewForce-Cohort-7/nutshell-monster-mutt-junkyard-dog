@@ -2,9 +2,9 @@ import { deleteEvent, getEvents, saveCompletion } from "./dataAccess.js"
 
 const convertToListElement = (event) => {
     return`
-    <li>
-     ${event.name} is at ${event.location} on ${event.eventDate} at ${event.eventTime}.${event.description} 
-   
+    <li><m>
+     ${event.name} is at ${event.location} on ${event.eventDate} at ${event.eventTime}.${event.description} </m>
+    
    
     
    
@@ -19,13 +19,21 @@ const convertToListElement = (event) => {
 export const events = () => {
     const events = getEvents()
     const sortEvents = events.sort ((a, b)=>new Date(a.eventDate) - new Date(b.eventDate))
-
+   
 
     let html =  sortEvents.map (events => convertToListElement(events)).join("")
                 
 
-   return html
+   return `<ul class="agendaList">${html}</ul>`
 }
+
+    
+
+
+
+
+
+
 const mainContainer = document.querySelector("#dashboard")
 
 mainContainer.addEventListener("click", clickevent => {                         
