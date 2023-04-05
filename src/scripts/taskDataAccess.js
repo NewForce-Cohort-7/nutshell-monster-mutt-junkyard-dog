@@ -1,6 +1,9 @@
 const applicationState = {
     tasks:[],
-    jokes:[]
+    joke:{
+        setup:'',
+        punchline:''
+}
 
 }
 
@@ -76,27 +79,20 @@ export const editTasks = (id) => {
 }
 
 
-// //Fetch random joke data from external API
+//created an empty variable to house API key bc of bots on gitHub. Dont want to give them access to your API key
 
-// const jokeAPI = "https://dad-jokes.p.rapidapi.com/random/joke"
+//need the API key for fetch function to work. Can use mine or create your own at:https://dadjokes.io/documentation/getting-started
 
-// //Create a function that will house the fetch task
+//'5a8cb382d1msh6f71fe0ce0cd722p1bcae0jsne4317167a6c9'
 
-// export const fetchJokes = () => {
-//     return fetch(`${jokeAPI}`)
-//         .then(response => response.json())
-//         .then(
-//             (randomJoke) => {
-//                 // Store the external state in application state
-//                 applicationState.jokes = randomJoke
-//             }
-//         )
-// }
+//'f6c82aecabmsh86cd78b71f9e882p17a81bjsn278be13f0ae5'
+const dadJokeKey='f6c82aecabmsh86cd78b71f9e882p17a81bjsn278be13f0ae5'
 
+//Fetch random joke data from external API
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '5a8cb382d1msh6f71fe0ce0cd722p1bcae0jsne4317167a6c9',
+		'X-RapidAPI-Key': `${dadJokeKey}`,
 		'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com'
 	}
 };
@@ -107,7 +103,10 @@ export const fetchJokes = () => {
 	.then(
         (randomJoke) => {
             // Store the external state in application state
-            applicationState.jokes.setup = randomJoke
+            //needed to use indexing bc data in body stored w/in an array
+            applicationState.joke.setup=randomJoke.body[0].setup
+            applicationState.joke.punchline=randomJoke.body[0].punchline
+            
         }
     )
 	.catch(err => console.error(err));
@@ -115,6 +114,7 @@ export const fetchJokes = () => {
 
 
 
-export const getJokes = () => {
-    return applicationState.jokes.map(joke => ({...joke}))
+export const getJoke = () => {
+    return applicationState.joke
 }
+

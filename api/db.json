@@ -44,6 +44,24 @@
       "dueDate": "2023-04-05",
       "complete": false,
       "id": 10
+    },
+    {
+      "task": "Water the bedroom plants",
+      "dueDate": "2023-04-07",
+      "complete": false,
+      "id": 11
+    },
+    {
+      "task": "Grocery run",
+      "dueDate": "2023-04-09",
+      "complete": false,
+      "id": 12
+    },
+    {
+      "task": "Get a Bearded Dragon",
+      "dueDate": "2023-04-15",
+      "complete": false,
+      "id": 13
     }
   ]
 }

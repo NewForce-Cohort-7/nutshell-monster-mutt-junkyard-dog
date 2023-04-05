@@ -33,23 +33,24 @@ mainContainer.addEventListener("click", clickEvent => {
           }
     }
 })
+    
 
-mainContainer.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "newTask") {
-        // Get what the user typed into the form fields
-        const newInputTask = document.querySelector("input[name='taskName']").value
-        const dueDate = document.querySelector("input[name='dueDate']").value
+// mainContainer.addEventListener("click", clickEvent => {
+//     if (clickEvent.target.id === "newTask") {
+//         // Get what the user typed into the form fields
+//         const newInputTask = document.querySelector("input[name='taskName']").value
+//         const dueDate = document.querySelector("input[name='dueDate']").value
 
-        // Make an object out of the user input
-        const dataToSendToAPI = {
-            task: newInputTask,
-            dueDate: dueDate,
-            complete: false
-        }
+//         // Make an object out of the user input
+//         const dataToSendToAPI = {
+//             task: newInputTask,
+//             dueDate: dueDate,
+//             complete: false
+//         }
 
-        // Send the data to the API for permanent storage
-        saveTasks(dataToSendToAPI)
-    }
-})
+//         // Send the data to the API for permanent storage
+//         saveTasks(dataToSendToAPI)
+//     }
+// })
 
 

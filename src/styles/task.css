@@ -1,0 +1,64 @@
+ .jokeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: auto;
+    height: fit-content;
+    padding: 20px 20px;
+    background-color: #8ae7da;
+    margin: 0 0 10 0 ;
+    border-radius: 20px;
+    text-align: center;
+    /*
+    word-wrap: break-word;
+    line-height: 35px;
+    margin: 30px 0;
+    opacity: 0;
+  */
+  }
+
+  #joke-btn {
+    display: block;
+    background-color: #438279;
+    padding: 5px;
+    font-size: 17px;
+    color: #ececec;
+    padding: 12px 25px;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  #submitTask {
+    display: block;
+    background-color: #438279;
+    padding: 5px;
+    font-size: 17px;
+    color: #ececec;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  #incomplete {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #8ae7c0;
+    width: 50%;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  #complete{
+    list-style: none;
+    background-color: #65ad8f;
+    width: 50%;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  
+  h1{
+    font: 1em sans-serif;
+  }
