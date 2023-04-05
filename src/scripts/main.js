@@ -1,21 +1,24 @@
 import { Nutshell } from "./Nutshell.js"
+import { fetchRequests, fetchArticles, fetchCompletedChats } from "./dataAccess.js"
 import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
-import { fetchRequests, fetchArticles } from "./dataAccess.js"
 
+// const dashboard = document.querySelector("#dashboard")
 const mainContainer = document.querySelector("#dashboard")
 
+// ---------------------------------------------------
 const render = () => {
-    fetchTasks()
+    fetchCompletedChats()
+    .then(()=>fetchTasks())
     .then(()=>fetchJokes())
     .then(()=>fetchRequests())
+    .then(() => fetchRequests())
     .then(() => fetchArticles())
-    .then(() => {
+    .then(
+        () => {
             mainContainer.innerHTML = Nutshell()
-            
         }
     )
 }
-
 render()
 
 
@@ -26,12 +29,14 @@ render()
 mainContainer.addEventListener("stateChanged",customEvent => {
         render()
     }
+
 )
 
 mainContainer.addEventListener("jokestateChanged",customEvent => {
     render()
 }
 )
+
 
 
 
