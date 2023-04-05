@@ -1,5 +1,5 @@
 import { Nutshell } from "./Nutshell.js"
-import { fetchRequests, fetchArticles } from "./dataAccess.js"
+import { fetchRequests, fetchArticles, fetchBreweries } from "./dataAccess.js"
 
 const mainContainer = document.querySelector("#dashboard")
 

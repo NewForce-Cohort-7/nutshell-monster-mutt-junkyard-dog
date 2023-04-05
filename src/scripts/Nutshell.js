@@ -4,11 +4,12 @@ import { breweryForm, breweryList } from "./breweries.js"
 export const Nutshell = () => {
       return `
       <div class="title-container">
-      <h1 class="articleHead">Articles</h1>
+      <h2 class="articleHead">Articles</h2>
       </div>
       ${articleForm()}
       ${articleList()}
       <div class="brew">
+      <h2 class="brewHead">Breweries</h2>
       ${breweryForm()}
       ${breweryList()}
             </div>

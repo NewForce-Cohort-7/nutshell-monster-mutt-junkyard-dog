@@ -36,7 +36,7 @@ export const breweryForm = () => {
   return html;
 };
 
-mainContainer.addEventListener("click", clickEvent => {
+mainContainer.addEventListener("click", async (clickEvent) => {
   if (clickEvent.target.classList.contains("brewery-search-button")) {
     const breweryForm = document.querySelector(".brewery-form");
     breweryForm.classList.toggle("hidden");
@@ -46,11 +46,10 @@ mainContainer.addEventListener("click", clickEvent => {
       clickEvent.target.textContent = "Cancel";
     }
   } else if (clickEvent.target.id === "searchBreweries") {
-    // search for the breweries and display the list
     const state = document.querySelector("input[id='brewery-state']").value.trim();
     const city = document.querySelector("input[id='brewery-city']").value.trim();
-    const breweries = fetchBreweriesByState(state, city);
-    const breweryListHTML = breweryList(breweries);
+    const breweries = await fetchBreweriesByState(state, city);
+    const breweryListHTML = await breweryList();
 
     const breweryListContainer = document.querySelector('.brewery-list');
     breweryListContainer.innerHTML = breweryListHTML;
