@@ -1,3 +1,5 @@
+
+
 .article-container {
     width: 25%;
     border: 1px solid black;
@@ -10,7 +12,11 @@
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
-    
+
+  }
+
+ .hidden {
+    display: none;
   }
   
   .article-form label {
@@ -114,84 +120,103 @@
     display: inline-block;
   }
 
-  .hidden {
-    display: none;
+
+  .brewHead {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #4214e9;
+    border-radius: 10px;
+    background-color: #007bff;
+    margin-bottom: 10px;
+    display: inline-block;
   }
   
- /* Button styles */
-.brewery-search-button {
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
+  
+  #search-brewery {
+   flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  #search-brewery label {
+    margin-bottom: 10px;
+  }
+  
+  #search-brewery input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #search-brewery button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-btn {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #007bff;
+  }
+
+  .brewery-container {
+    border: solid thin black;
+    color: black;
+  }
+  
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
   color: #fff;
-  cursor: pointer;
   font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-  transition: background-color 0.2s ease;
+  line-height: 40px;
+  display: block;
+  padding: 0 10px;
 }
 
-.brewery-search-button:hover {
-  background-color: #0062cc;
+nav ul li a:hover {
+  background-color: #555;
 }
 
-/* Form styles */
-.brewery-form {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-
-  flex-direction: column;
-  padding: 10px;
-}
-
-.brewery-form .label {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.brewery-form .input {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.brewery-form .button {
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-  transition: background-color 0.2s ease;
-}
-
-.brewery-form .button:hover {
-  background-color: #0062cc;
-}
-
-.brewHead {
-  font-family: 'Open Sans', sans-serif;
-  padding: 10px;
-  align-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  padding: 10px;
-  border: 2px solid #007bff;
-  border: none;
-  border-radius: 10px;
-  background-color: #007bff;
-  margin-bottom: 10px;
-}
-
-.brew {
-  padding: 10px;
-  display: inline-block;
-}
 
 
 

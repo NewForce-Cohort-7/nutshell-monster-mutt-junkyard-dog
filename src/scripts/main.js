@@ -1,13 +1,14 @@
 import { Nutshell } from "./Nutshell.js"
 import { fetchRequests, fetchArticles } from "./dataAccess.js"
-import { fetchBreweries } from "./brewsAPI.js"
+import { fetchBreweriesByState, fetchBreweriesByCity } from "./dataAccess.js"
 const mainContainer = document.querySelector("#dashboard")
 
 export const render = () => {
     fetchRequests()
     .then(() => fetchArticles())
-    .then(() => fetchBreweries())
-    .then(() => { 
+    .then(() => fetchBreweriesByState())
+    .then(() => fetchBreweriesByCity())
+    .then(() =>  { 
             mainContainer.innerHTML = Nutshell()
             
         }

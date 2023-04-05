@@ -1,21 +1,20 @@
 import { articleForm, articleList } from "./articles.js"
-import { breweryForm, breweryList } from "./breweries.js"
-
+import { BreweryForm, breweryList } from "./breweries.js"
+import { Navbar } from "./navBar.js"
 export const Nutshell = () => {
       return `
+      
       <div class="title-container">
-      <h2 class="articleHead">Articles</h2>
+      <div class="navbar">${Navbar()}</div>
+      <br>
+      <h2 class="articleHead" id="navArticles">Articles!</h2>
       </div>
       ${articleForm()}
       ${articleList()}
       <div class="brew">
-      <h2 class="brewHead">Breweries</h2>
-      <div class="brewery-form">
-      ${breweryForm()}
-      </div>
-      <div class="brewery-list">
+      <h2 class="brewHead" id="navBrews">Breweries!</h2>
+      ${BreweryForm()}
       ${breweryList()}
-      </div>
             </div>
       
       `

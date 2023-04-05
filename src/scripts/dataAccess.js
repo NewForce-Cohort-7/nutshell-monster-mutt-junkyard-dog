@@ -3,8 +3,8 @@ const applicationState = {
   breweries: []
 }
 const API = "http://localhost:8088";
-
-
+const cityAPI = "https://api.openbrewerydb.org/v1/breweries?by_city=san_diego&per_page=3"
+const stateAPI = "https://api.openbrewerydb.org/v1/breweries?by_state=new_york&per_page=3"
 const mainContainer = document.querySelector("#dashboard")
 
 
@@ -53,38 +53,20 @@ export const saveArticle = (article) => {
 
 }
 
-
 export const getBreweries = () => {
-  return applicationState.breweries
+  return applicationState.breweries.map(brewery => ({...brewery }))
 }
-// export const fetchBreweries = () => {
-//   return fetch(`${brewURL}/breweries`)
-//     .then(response => response.json())
-//     .then((data) => {
-//       applicationState.breweries = data
-//     })
-// };
 
-// export const saveBrewery = (brewery) => {
-//   const fetchOptions = {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(brewery)
-//   }
-//     return fetch(`${brewURL}/breweries`, fetchOptions)
-//     .then(response => response.json())
-//     .then(() => {
-//       mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//     })
+export const fetchBreweriesByState = (breweryState) => {
+return fetch(`${stateAPI}?by_state=${breweryState}`)
+.then(response => response.json())
+.then((parsedResponse) => { applicationState.breweries = parsedResponse})
+console.log(applicationState.breweries)
+}
 
-// }
-
-// export const fetchBreweriesByState = async (state) => {
-//   const response = await fetch(`${brewURL}?by_state=${state}`);
-//   const breweries = await response.json();
-//   return breweries;
-// };
-
+export const fetchBreweriesByCity = (breweryCity) => {
+  return fetch(`${cityAPI}?by_city=${breweryCity}`)
+  .then(response => response.json())
+  .then((parsedResponse) => {applicationState.breweries = parsedResponse})
+}
 
