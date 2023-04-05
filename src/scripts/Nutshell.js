@@ -10,8 +10,12 @@ export const Nutshell = () => {
       ${articleList()}
       <div class="brew">
       <h2 class="brewHead">Breweries</h2>
+      <div class="brewery-form">
       ${breweryForm()}
+      </div>
+      <div class="brewery-list">
       ${breweryList()}
+      </div>
             </div>
       
       `

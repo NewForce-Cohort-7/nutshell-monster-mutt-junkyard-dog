@@ -3,7 +3,7 @@ const applicationState = {
   breweries: []
 }
 const API = "http://localhost:8088";
-const brewURL = 'https://api.openbrewerydb.org/v1/breweries';
+
 
 const mainContainer = document.querySelector("#dashboard")
 
@@ -53,25 +53,10 @@ export const saveArticle = (article) => {
 
 }
 
-export const fetchBreweries = async () => {
-  const response = await fetch(`${brewURL}`);
-  const breweries = await response.json();
-  applicationState.breweries = breweries;
-  return breweries;
-};
-
-export const fetchBreweriesByState = async (state, city) => {
-  const response = await fetch(`${brewURL}?by_state=${state}&by_city=${city}`);
-  const breweries = await response.json();
-  applicationState.breweries = breweries;
-  return breweries;
-};
-
 
 export const getBreweries = () => {
-  return applicationState.breweries.map((brewery) => ({ ...brewery }));
-};
-
+  return applicationState.breweries
+}
 // export const fetchBreweries = () => {
 //   return fetch(`${brewURL}/breweries`)
 //     .then(response => response.json())
