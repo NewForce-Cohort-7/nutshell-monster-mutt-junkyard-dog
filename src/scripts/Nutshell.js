@@ -45,10 +45,13 @@ export const Nutshell = () => {
       
       
       <div class="chat-container">
-      <h1>Nutshell Chat</h1>
-        <section class="siteChat">
-            ${siteChat()}
-        </section> 
+            <div class="chat-Title">
+                  <h1>Nutshell Chat</h1>
+            </div>
+            <section class="siteChat">
+                  ${siteChat()}
+            </section> 
+            
       </div>
     `
 }

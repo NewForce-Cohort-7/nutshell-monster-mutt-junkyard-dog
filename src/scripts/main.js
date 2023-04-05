@@ -2,7 +2,7 @@ import { Nutshell } from "./Nutshell.js"
 import { fetchRequests, fetchArticles, fetchCompletedChats } from "./dataAccess.js"
 import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
 
-const dashboard = document.querySelector("#dashboard")
+// const dashboard = document.querySelector("#dashboard")
 const mainContainer = document.querySelector("#dashboard")
 
 // ---------------------------------------------------

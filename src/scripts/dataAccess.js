@@ -1,3 +1,4 @@
+
 const applicationState = {
     articles: [],
     chats: [] 
@@ -7,7 +8,11 @@ const applicationState = {
   
   const mainContainer = document.querySelector("#dashboard")
 
-  // My stuff  --------------------------------------
+  // Nutshell Chat stuff  --------------------------------------
+
+export const getCompletedChats = () => {
+    return applicationState.chats.map(chat => ({ ...chat }))
+}
 
 export const fetchCompletedChats = () => {
     return fetch(`${API}/chats`)
@@ -18,6 +23,52 @@ export const fetchCompletedChats = () => {
             }
         )
 }
+
+export const sendChat = (userMessage) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userMessage)
+    }
+    return fetch(`${API}/chats`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+}
+
+export const Chats = () => {
+    const completedChats = getCompletedChats()
+
+    let html = '<ul>'
+    const chatConversion = completedChats.map((chat => {
+        return ` 
+        <li>
+            ${chat.username}:
+            ${chat.chatSubmission} 
+            <button class="request__delete"
+                    id="deleteChat--${chat.id}">
+                    &#128465
+            </button>
+        </li>
+        `
+            }
+            ))
+        html += chatConversion.join("") //joining ll request objects together
+        html+= '</ul>'
+        return html
+    }
+
+    export const deleteMessage = (id) => {
+        return fetch(`${API}/chats/${id}`, { method: "DELETE" })
+            .then(
+                () => {
+                    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+                }
+            )
+    }
 // ------------------------------------------------------
   
   

@@ -2,13 +2,38 @@
     width: 30%;
     float: right;
     margin-right: 95px;
-    outline: 2px dashed black;
+    outline: 2px solid black;
+    background-color: #719272;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    font-family: monospace;
+    font-size: 15px;
+
+  }
+
+  .chat-Title {
+    padding-left: 15px;
+    font-size: 18px;
   }
 /* chat history - large box holding previous messages */
   .chat {
-    flex-direction: column;
     height: 500px;
-    /* outline: 2px dashed blue; */
+    margin-left: 15px;
+    width: 95%;
+    outline: 2px solid black;
+    border-radius: 5px;
+    padding-top: 5px;
+    background-color: white;
+    color: black;
+    overflow:auto;
+    display: flex;
+    flex-direction: column-reverse;
+    
   }
   .large-Input {
     width: 95%;
@@ -18,27 +43,27 @@
 
   /* username and chat input boxes */
   .chat-Input-Fields {
-    display: flex;
+    /* display: flex; */
     /* border: 3px dashed red; */
-    padding:1em;
+    /* padding:1em; */
+    margin: 1rem;
   }
 
   .username-Field {
-    /* padding-right:1em; */
-    padding-top:1em;
+    /* padding-top:1em; */
     /* border: 3px dashed orange; */
+    display: inline-block;
   }
 
   .new-Chat-Field {
     padding-top:1em;
+    padding-right: 40px;
     /* border: 3px dashed green; */
-  }
-  .username-Field {
-    flex-direction: column;
+    display: inline-block;
   }
 
   .medium-Input {
-    width: 80%;
+    width: 70%;
   }
   .small-Input {
     width: 50%;
@@ -49,6 +74,7 @@
     /* outline: 2px dashed orchid; */
     float: right;
     margin-right: 15px;
+    display: inline-block;
   }
 
 
