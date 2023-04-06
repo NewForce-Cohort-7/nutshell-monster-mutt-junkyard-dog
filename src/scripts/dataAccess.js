@@ -1,5 +1,6 @@
 
 const applicationState = {
+
   articles: [],
   breweries: [],
   chats: [],
@@ -9,12 +10,54 @@ const applicationState = {
   messages: [],
   events: []
 
+
 }
 const API = "http://localhost:8088";
 const brewAPI = "https://api.openbrewerydb.org/v1/breweries"
 
 const mainContainer = document.querySelector("#dashboard")
 
+
+export const fetchEvents = () => {
+  return fetch(`${API}/events`)
+      .then(response => response.json())
+      .then(
+          (eventInput) => {
+              // Store the external state in application state
+              applicationState.events = eventInput
+          }
+      )
+}
+export const getEvents = () => {
+  return applicationState.events.map(events => ({ ...events}))
+}
+
+
+export const sendEvent = (userEventRequest) => {
+  const fetchOptions = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userEventRequest)
+  }
+
+
+  return fetch(`${API}/events`, fetchOptions)
+      .then(response => response.json())
+      .then(() => {
+          mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+      })
+}
+
+export const deleteEvent = (id) => {
+  return fetch(`${API}/events/${id}`, { method: "DELETE" })
+      .then(
+          () => {
+              mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+          }
+      )
+}
 
 
 export const fetchArticles = () => {
