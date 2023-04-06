@@ -3,6 +3,13 @@ import { articleForm, articleList } from "./articles.js"
 import { TaskForm } from "./taskForm.js"
 import { TaskList, TaskListComplete } from "./taskList.js"
 import { DadJokes } from "./generateJoke.js"
+import { eventForm } from "./eventForm.js"
+import { events } from "./events.js"
+
+
+
+// Render all your UI components here
+
 
 // export const Nutshell = () => {
 //       return `
@@ -14,9 +21,23 @@ import { DadJokes } from "./generateJoke.js"
 //       // Render all your UI components here
 // }
 
+
 export const Nutshell = () => {
-    return `
-        <section class="joke">
+return `
+    <h1>Event</h1>
+    <section class="eventForm">
+    ${eventForm()}
+    </section>
+   <section class= "events">
+   <h2>Agenda</h2>
+   ${events()}
+   </section>
+   <div class="title-container">
+      <h1 class="articleHead">Articles</h1>
+      </div>
+      ${articleForm()}
+      ${articleList()}
+      <section class="joke">
         <h1> Just for Laughs</h1>
          ${DadJokes()}
         </section>
@@ -35,13 +56,9 @@ export const Nutshell = () => {
         ${TaskListComplete()}
         </section>
 
-        <section>
-        <div class="title-container">
-        <h1 class="articleHead">Articles</h1>
-        </div>
-      ${articleForm()}
-      ${articleList()}
+    
       </section>
+
       
       
       <div class="chat-container">
@@ -54,10 +71,6 @@ export const Nutshell = () => {
             
       </div>
     `
+
 }
-
-
-
-
-
 

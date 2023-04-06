@@ -1,6 +1,6 @@
 import { getArticles, deleteArticle, saveArticle } from "./dataAccess.js";
 
-const articlesContainer = document.querySelector("#articlesContainer")
+const articlesContainer = document.querySelector("#dashboard")
 
 
 export const articleList = () => {
