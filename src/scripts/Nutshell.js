@@ -11,9 +11,9 @@ import { events } from "./events.js"
 export const Nutshell = () => {
 
 return `
-    <section id= gridContainer>
+      <div class="navBar"> ${Navbar()}</div>
     <h1>Event</h1>
-    <section class="eventForm">
+    <section class="eventForm" id="navEvents">
     ${eventForm()}
     </section>
 
@@ -23,21 +23,17 @@ return `
    </section>
 
    <div class="title-container">
-      <h1 class="articleHead">Articles</h1>
-   </div>
+      <h1 class="articleHead" id="navArticles">Articles</h1>
+      </div>
       ${articleForm()}
       ${articleList()}
-   
-   <section class="taskForm">
+     
+        <section class="taskForm" id="navTasks">
+        <h1>My Tasks</h1>
         ${TaskForm()}
         ${TaskList()}
         ${TaskListComplete()}
     </section>
-
-    <div class="chat-container">
-      ${siteChat()}
-    </div>
-      
     <div class="brew">
             <h2 class="brewHead" id="navBrews">Breweries!</h2>
             ${BreweryForm()}
@@ -48,14 +44,11 @@ return `
             <div class="chat-Title">
             <h1>Nutshell Chat</h1>
             </div>
-      </div>
-
-    <section class="siteChat">
-        ${siteChat()}
-    </section> 
-
-      `
-
+            <section class="siteChat" id="navChat">
+                  ${siteChat()}
+            </section> 
+            
+      </div>`
 }
 
 
