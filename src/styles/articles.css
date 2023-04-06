@@ -171,10 +171,6 @@
     border: none;
     cursor: pointer;
   }
-  
-  .search-btn:hover {
-    background-color: #007bff;
-  }
 
   .brewery-container {
     border: solid thin black;
@@ -182,45 +178,49 @@
   }
   
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background-color: #333;
-
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-}
-
-nav ul li {
-  margin: 0 10px;
-}
-
-nav ul li a {
-  color: #fff;
-  font-size: 16px;
-  line-height: 40px;
-  display: block;
-  padding: 0 10px;
-}
-
-nav ul li a:hover {
-  background-color: #555;
-}
-
-
-
-
+  nav {
+    display: flex;
+    justify-content: flex-start;
+    
+  }
+  
+  .dropdown {
+    position: relative;
+    display: flex;
+   
+  }
+  
+  .dropdown-btn {
+    background-color: #45025f;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    cursor: cell;
+    padding: 14px 16px;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 160px;
+    background-color: #f2f2f2;
+    box-shadow: 0px 25px 35px 0px rgba(73, 202, 241, 0.2);
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
 
   
   

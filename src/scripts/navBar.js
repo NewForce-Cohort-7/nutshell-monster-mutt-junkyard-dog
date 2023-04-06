@@ -1,16 +1,19 @@
 export const Navbar = () => {
-    return `
-      <nav>
-        <ul>
-          <li><a href="#navEvents">Events</a></li>
-          <li><a href="#navArticles">Articles</a></li>
-          <li><a href="#navBrews">Breweries</a></li>
-          <li><a href="#navTasks">Tasks</a></li>
-          <li><a href="#navChat">Chat</a></li>
-        </ul>
-      </nav>
-    `;
-  };
-  
+  return `
+  <nav>
+  <div class="dropdown">
+    <button class="dropdown-btn">Menu &#9776;</button>
+    <div class="dropdown-content">
+      <a href="#navEvents">Events</a>
+      <a href="#navArticles">Articles</a>
+      <a href="#navBrews">Breweries</a>
+      <a href="#navTasks">Tasks</a>
+      <a href="#navChat">Chat</a>
+    </div>
+  </div>
+</nav>
+
+  `;
+};
 
   
