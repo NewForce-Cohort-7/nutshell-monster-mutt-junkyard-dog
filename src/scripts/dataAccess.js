@@ -1,6 +1,5 @@
 
 const applicationState = {
-
   articles: [],
   breweries: [],
   chats: [],
@@ -10,12 +9,17 @@ const applicationState = {
   messages: [],
   events: []
 
-
 }
 const API = "http://localhost:8088";
 const brewAPI = "https://api.openbrewerydb.org/v1/breweries"
 
 const mainContainer = document.querySelector("#dashboard")
+
+
+
+
+
+
 
 
 export const fetchEvents = () => {
@@ -58,6 +62,29 @@ export const deleteEvent = (id) => {
           }
       )
 }
+
+
+
+
+
+export const saveCompletion = (completionObject) => {
+  const fetchOptions = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(completionObject)
+  }
+
+//sends saveCompletion object to the API-JSON database
+  return fetch(`${API}/completions`, fetchOptions)
+      .then(response => response.json())
+      .then(() => {
+          mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+      })}
+
+
+
 
 
 export const fetchArticles = () => {
