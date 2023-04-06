@@ -1,15 +1,17 @@
 import { Nutshell } from "./Nutshell.js"
 import { fetchRequests, fetchArticles, fetchCompletedChats } from "./dataAccess.js"
 import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
+import { DadJokes } from "./generateJoke.js"
 
-// const dashboard = document.querySelector("#dashboard")
+
 const mainContainer = document.querySelector("#dashboard")
+const jokeContainer = document.querySelector("#taskContainer")
 
 // ---------------------------------------------------
 const render = () => {
     fetchCompletedChats()
     .then(()=>fetchTasks())
-    .then(()=>fetchJokes())
+    // .then(()=>fetchJokes())
     .then(()=>fetchRequests())
     .then(() => fetchRequests())
     .then(() => fetchArticles())
@@ -22,6 +24,16 @@ const render = () => {
 render()
 
 
+const renderJokehtml = () => {
+    fetchJokes()
+    .then(
+        () => {
+            jokeContainer.innerHTML = DadJokes()
+        }
+    )
+}
+renderJokehtml()
+
 
 //In taskDataAccess when user deletes task or inputs new task, check a checkbox & the data is saved permanently in db, dispatch event sends a "state change" signal....eventlistener hears and refresh page
 
@@ -32,10 +44,13 @@ mainContainer.addEventListener("stateChanged",customEvent => {
 
 )
 
-mainContainer.addEventListener("jokestateChanged",customEvent => {
-    render()
+jokeContainer.addEventListener("jokestateChanged",customEvent => {
+    renderJokehtml()
 }
+
 )
+
+
 
 
 

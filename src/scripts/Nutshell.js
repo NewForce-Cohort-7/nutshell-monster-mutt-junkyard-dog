@@ -2,7 +2,7 @@ import { siteChat } from "./chat.js"
 import { articleForm, articleList } from "./articles.js"
 import { TaskForm } from "./taskForm.js"
 import { TaskList, TaskListComplete } from "./taskList.js"
-import { DadJokes } from "./generateJoke.js"
+
 
 // export const Nutshell = () => {
 //       return `
@@ -17,7 +17,6 @@ import { DadJokes } from "./generateJoke.js"
 export const Nutshell = () => {
     return `
         <section id= gridContainer>
-        ${DadJokes()}
         ${TaskForm()}
         ${TaskList()}
         ${TaskListComplete()}
