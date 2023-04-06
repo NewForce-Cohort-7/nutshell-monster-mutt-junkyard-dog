@@ -1,10 +1,17 @@
 import { Nutshell } from "./Nutshell.js"
-import { fetchRequests, fetchArticles } from "./dataAccess.js"
+import { fetchRequests, fetchArticles, fetchCompletedChats } from "./dataAccess.js"
 import { fetchBreweriesByState, fetchBreweriesByCity } from "./dataAccess.js"
+import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
+
 const mainContainer = document.querySelector("#dashboard")
 
-export const render = () => {
-    fetchRequests()
+// ---------------------------------------------------
+const render = () => {
+    fetchCompletedChats()
+    .then(()=>fetchTasks())
+    .then(()=>fetchJokes())
+    .then(()=>fetchRequests())
+    .then(() => fetchRequests())
     .then(() => fetchArticles())
     .then(() => fetchBreweriesByState())
     .then(() => fetchBreweriesByCity())
@@ -14,12 +21,14 @@ export const render = () => {
         }
     )
 }
-
 render()
 
-mainContainer.addEventListener(
-    "stateChanged",
-    customEvent => {
+
+
+//In taskDataAccess when user deletes task or inputs new task & the data is saved permanently in db, dispatch event sends a "state change" signal....eventlistener hears and refresh page
+//mainContainer = document.querySelector("#taskContainer")
+
+mainContainer.addEventListener("stateChanged",customEvent => {
         render()
     }
 )
