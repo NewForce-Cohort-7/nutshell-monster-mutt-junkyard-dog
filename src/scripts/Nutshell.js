@@ -8,26 +8,11 @@ import { DadJokes } from "./generateJoke.js"
 import { eventForm } from "./eventForm.js"
 import { events } from "./events.js"
 
-
-
-// Render all your UI components here
-
-
-// export const Nutshell = () => {
-//       return `
-//       <h1>Nutshell Chat</h1>
-//         <section class="siteChat">
-//             ${siteChat()}
-//         </section>
-//       `
-//       // Render all your UI components here
-// }
-
-
 export const Nutshell = () => {
 return `
+      <div class="navBar"> ${Navbar()}</div>
     <h1>Event</h1>
-    <section class="eventForm">
+    <section class="eventForm" id="navEvents">
     ${eventForm()}
     </section>
    <section class= "events">
@@ -35,7 +20,7 @@ return `
    ${events()}
    </section>
    <div class="title-container">
-      <h1 class="articleHead">Articles</h1>
+      <h1 class="articleHead" id="navArticles">Articles</h1>
       </div>
       ${articleForm()}
       ${articleList()}
@@ -43,7 +28,7 @@ return `
         <h1> Just for Laughs</h1>
          ${DadJokes()}
         </section>
-        <section class="taskForm">
+        <section class="taskForm" id="navTasks">
         <h1>My Tasks</h1>
         ${TaskForm()}
         </section>
@@ -57,10 +42,6 @@ return `
         <h1>Done!!</h1>
         ${TaskListComplete()}
         </section>
-
-    
-      </section>
-      
       <div class="brew">
       <h2 class="brewHead" id="navBrews">Breweries!</h2>
       ${BreweryForm()}
@@ -70,7 +51,7 @@ return `
             <div class="chat-Title">
                   <h1>Nutshell Chat</h1>
             </div>
-            <section class="siteChat">
+            <section class="siteChat" id="navChat">
                   ${siteChat()}
             </section> 
             
