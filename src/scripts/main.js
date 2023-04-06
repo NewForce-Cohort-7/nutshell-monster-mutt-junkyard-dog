@@ -3,7 +3,6 @@ import { fetchRequests, fetchArticles, fetchCompletedChats,fetchEvents } from ".
 import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
 import { DadJokes } from "./generateJoke.js"
 
-
 const mainContainer = document.querySelector("#dashboard")
 const jokeContainer = document.querySelector("#taskContainer")
 

@@ -1,5 +1,7 @@
 import { siteChat } from "./chat.js"
 import { articleForm, articleList } from "./articles.js"
+import { BreweryForm, breweryList } from "./breweries.js"
+import { Navbar } from "./navBar.js"
 import { TaskForm } from "./taskForm.js"
 import { TaskList, TaskListComplete } from "./taskList.js"
 import { eventForm } from "./eventForm.js"
@@ -27,22 +29,39 @@ return `
       ${articleList()}
    
    <section class="taskForm">
-        <h1>My Tasks</h1>
         ${TaskForm()}
         ${TaskList()}
         ${TaskListComplete()}
     </section>
 
     <div class="chat-container">
+
+    </div>
+      
+    <div class="brew">
+            <h2 class="brewHead" id="navBrews">Breweries!</h2>
+            ${BreweryForm()}
+            ${breweryList()}
+    </div>
+      
+      <div class="chat-container">
             <div class="chat-Title">
             <h1>Nutshell Chat</h1>
             </div>
+      </div>
+
     <section class="siteChat">
         ${siteChat()}
     </section> 
-            
-    </div>
-    `
+
+      `
 
 }
+
+
+
+
+
+
+
 
