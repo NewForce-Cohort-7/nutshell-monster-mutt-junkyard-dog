@@ -1,6 +1,5 @@
 import { Nutshell } from "./Nutshell.js"
 import { fetchRequests, fetchArticles, fetchCompletedChats } from "./dataAccess.js"
-import { fetchBreweriesByState, fetchBreweriesByCity } from "./dataAccess.js"
 import { fetchTasks,fetchJokes } from "./taskDataAccess.js"
 
 const mainContainer = document.querySelector("#dashboard")
@@ -13,8 +12,6 @@ const render = () => {
     .then(()=>fetchRequests())
     .then(() => fetchRequests())
     .then(() => fetchArticles())
-    .then(() => fetchBreweriesByState())
-    .then(() => fetchBreweriesByCity())
     .then(() =>  { 
             mainContainer.innerHTML = Nutshell()
             

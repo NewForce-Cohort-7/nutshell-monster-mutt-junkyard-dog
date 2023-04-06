@@ -71,15 +71,16 @@ mainContainer.addEventListener("click", clickEvent => {
       clickEvent.target.textContent = "Cancel";
     }
   } else if (clickEvent.target.id === "createArticle") {
-    // save the article and close the form
+    
     const articleTitle = document.querySelector("input[id='new-article-title']").value;
     const articleSynopsis = document.querySelector("input[id='new-article-synopsis']").value;
     const articleUrl = document.querySelector("input[id='new-article-url']").value;
     const articleTags = document.querySelector("input[id='new-article-tags']").value.split(",").map(tag => tag.trim());
 
 if (!articleTitle || !articleSynopsis || !articleUrl) {
-  window.alert(`Enter an article title, synopsis and URL before saving`);
+  window.alert(`Enter all fields before saving`);
   return;
+
 } else {
   const dataToSendToAPI = {
     title: articleTitle,
