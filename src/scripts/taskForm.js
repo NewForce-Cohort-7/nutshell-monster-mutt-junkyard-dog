@@ -33,6 +33,7 @@ mainContainer.addEventListener("click", clickEvent => {
           }
     }
 })
+    
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "newTask") {
