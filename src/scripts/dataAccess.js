@@ -12,11 +12,6 @@ const mainContainer = document.querySelector("#dashboard")
 
 
 
-
-
-
-
-
 export const fetchArticles = () => {
   return fetch(`${API}/articles`)
   .then(response => response.json())
