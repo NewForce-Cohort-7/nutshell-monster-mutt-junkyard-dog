@@ -35,7 +35,7 @@ return `
     </section>
 
     <div class="chat-container">
-
+      ${siteChat()}
     </div>
       
     <div class="brew">
